@@ -1,10 +1,8 @@
 class Empleado:
-    
-    def _int_(self,nombre: str, correo: str):
-        self.nombre=nombre
-        self.correo=correo
-
+    def __init__(self, nombre: str, correo: str, id = None):
+        self.nombre = nombre
+        self.correo = correo
+        self.id = id
+        
     def mostrar_datos(self) -> str:
-return f"{self.nombre} - {self.correo}"
-
-
+        return f"{self.nombre} - {self.correo}"

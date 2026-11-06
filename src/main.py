@@ -1,11 +1,10 @@
-from dominio .empleado import  Empleado
+from dominio.empleado import  Empleado
+from dominio.departamento import Departamento
+from percistencia.empleado_dao import EmpleadoDAO
+from percistencia.creacion_bd import crear_tablas
+crear_tablas()
 
-emp = Empleado("juanito", "correo@mail.cl")
-
-emp2 = Empleado(
-    nombre="julio",
-    correo="julio@gmail.cl"
-)
-
+emp = Empleado("correo@gmail.cl","juanito")
+print(emp)
+EmpleadoDAO.insertar(emp)
 print(emp.mostrar_datos())
-print(emp2.mostrar_datos())
