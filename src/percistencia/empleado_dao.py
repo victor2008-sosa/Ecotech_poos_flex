@@ -1,4 +1,4 @@
-from persistencia.conexion import abrir_conexion, obtener_motor
+from percistencia.conexion import abrir_conexion, obtener_motor
 from dominio.empleado import Empleado
 
 
@@ -18,3 +18,20 @@ class EmpleadoDAO:
         conexion.commit()
         conexion.close()
         return empleado
+
+    def listar():
+        conexion = abrir_conexion()
+        cursor = conexion.cursor()
+        sql = (
+            "SELECT id, nombre, correo "
+            "FROM empleado ORDER BY id"
+        )
+        cursor.execute(sql)
+        filas = cursor.fetchall()
+        empleados = []
+        for id_empleado, nombre, correo in filas:
+            empleado = Empleado(
+                nombre=nombre, correo=correo, id=id_empleado
+            )  
+            empleados.append(empleado)
+        return empleados
