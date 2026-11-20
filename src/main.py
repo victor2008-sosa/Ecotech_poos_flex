@@ -2,6 +2,7 @@ from dominio.empleado import  Empleado
 from dominio.departamento import Departamento
 from percistencia.empleado_dao import EmpleadoDAO
 from percistencia.creacion_bd import crear_tablas
+from presentacion.menu_empleado import menu_empleados
 crear_tablas()
 
 
@@ -23,3 +24,11 @@ else:
             f"{empleado.id}: {empleado.nombre} "
             f"- {empleado.correo}"
         )
+
+def main():
+    print("=== SISTEMA DE GESTIÓN ECOTECH ===")
+    menu_empleados()
+    print("Programa finalizado.")
+
+if __name__ == "__main__":
+    main()
